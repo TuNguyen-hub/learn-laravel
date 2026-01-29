@@ -24,8 +24,8 @@ class AuthController extends Controller
         // Thông tin chuẩn của sinh viên 
         $myMssv = '4002967'; 
         $myLop = '67PM4';   
-
-        // Logic kiểm tra:
+        $mygioitinh= 'Nam';
+        
         // 1. Mật khẩu phải trùng khớp với nhập lại
         if ($pass !== $repass) {
             return "Đăng ký thất bại (Mật khẩu không khớp)";
