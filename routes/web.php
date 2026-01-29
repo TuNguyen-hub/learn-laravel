@@ -42,3 +42,8 @@ Route::get('/banco/{n}', function ($n) {
 Route::fallback(function () {
     return view('error.404');
 });
+// 8. Routes cho đăng ký (SignIn)
+use App\Http\Controllers\AuthController;
+
+Route::get('/signin', [AuthController::class, 'formSignIn'])->name('auth.form');
+Route::post('/signin', [AuthController::class, 'checkSignIn'])->name('auth.check');
