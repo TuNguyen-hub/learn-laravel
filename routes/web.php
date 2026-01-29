@@ -47,3 +47,20 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/signin', [AuthController::class, 'formSignIn'])->name('auth.form');
 Route::post('/signin', [AuthController::class, 'checkSignIn'])->name('auth.check');
+// 9. Route có middleware kiểm tra tuổi
+// 9.1 Route hiển thị form nhập tuổi
+Route::get('/input-age', function () {
+    return view('input_age');
+});
+
+// 9.2 Route xử lý lưu tuổi vào Session
+Route::post('/save-age', function (Illuminate\Http\Request $request) {
+    // Lưu tuổi vào session với key là 'user_age'
+    session(['user_age' => $request->input('age')]);
+    return redirect('/admin-page'); // Chuyển hướng đến trang cần bảo vệ
+})->name('save.age');
+
+// 9.3 Route cần bảo vệ (Áp dụng middleware check.age)
+Route::get('/admin-page', function () {
+    return "Chào mừng! Bạn đã đủ 18 tuổi để xem trang này.";
+})->middleware('check.age');

@@ -22,8 +22,8 @@ class AuthController extends Controller
         $gioitinh = $request->input('gioitinh');
 
         // Thông tin chuẩn của sinh viên 
-        $myMssv = '4002967'; // Ví dụ
-        $myLop = '67PM4';   // Ví dụ
+        $myMssv = '4002967'; 
+        $myLop = '67PM4';   
 
         // Logic kiểm tra:
         // 1. Mật khẩu phải trùng khớp với nhập lại
