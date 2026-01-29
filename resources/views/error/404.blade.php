@@ -1,0 +1,1 @@
+<h1 style="color: red; text-align: center;">Lỗi 404 - Không tìm thấy trang yêu cầu!</h1>
